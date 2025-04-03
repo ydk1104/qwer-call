@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <div className="flex">
         <Image
-          src="/TBH.jpg"
+          src="TBH.jpg"
           alt="고민중독"
           width={991}
           height={991}
