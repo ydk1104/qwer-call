@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { 가사 } from "./TBH";
 import { useState } from "react";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const 소절 = 가사.split("\n");
