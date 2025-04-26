@@ -27,7 +27,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* <div className="bg-[url(/MANITO.webp)] bg-no-repeat w-dvw h-dvh bg-cover"> */}
+        <div className="bg-sky-100 w-dvw h-dvh flex justify-center">
+          {children}
+        </div>
+        {/* </div> */}
       </body>
     </html>
   );
