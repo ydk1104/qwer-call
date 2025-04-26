@@ -5,16 +5,24 @@ import Image from "next/image";
 
 export const useTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [timer, setTimer] = useState(0);
+  const [timer, setTimer] = useState({
+    start: Date.now(),
+    time: 0,
+  });
   const timerRef: RefObject<NodeJS.Timeout | null> = useRef(null);
 
   const handleStart = (e: any) => {
-    const time = e.target.getCurrentTime();
+    const time = Math.ceil(e.target.getCurrentTime() * 1000);
     if (isRunning) return;
     setIsRunning(true);
-    setTimer(time * 100);
+    setTimer({ start: Date.now() - time, time: time });
     timerRef.current = setInterval(() => {
-      setTimer((prev) => prev + 1);
+      setTimer((prev) => {
+        return {
+          start: prev.start,
+          time: Date.now() - prev.start,
+        }
+      });
     }, 10);
   };
 
@@ -27,11 +35,14 @@ export const useTimer = () => {
   const handleReset = () => {
     setIsRunning(false);
     clearInterval(timerRef.current as unknown as any);
-    setTimer(0);
+    setTimer({
+      start: Date.now(),
+      time: 0,
+    });
   };
 
   const TimerComponent = () => {
-    const s = Math.floor(timer / 100);
+    const s = Math.floor(timer.time / 1000);
     const m = Math.floor(s / 60);
     return (
       <div>
@@ -44,7 +55,7 @@ export const useTimer = () => {
     handleStart,
     handlePause,
     handleReset,
-    time: timer / 100,
+    time: timer.time / 1000,
   };
 };
 
@@ -94,6 +105,7 @@ export const Player = ({
   const current소절 = (data || []).reduce((prev, curr) => {
     return time <= curr.시작시간 ? prev : curr;
   });
+  // console.log(current소절);
   let i = 0;
   while (time >= current소절.소절[i]?.시간) i++;
   i--;
