@@ -23,7 +23,7 @@ export default function Home() {
 
         <div>
           <div className="m-30" />
-          <Player data={data.data} />
+          <Player data={data} />
 
           <button
             className="border rounded-3xl w-8 h-8 bg-gray-100 border-gray-300"

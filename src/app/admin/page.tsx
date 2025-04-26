@@ -52,10 +52,10 @@ const 가사 = `
 
 const 악보 = `
 \\ $126
-\\원$4투$4Q$2W$2E$2R$2
-\\ $2ㅁ$4s$4d$4f$2
-\\ $2g$4h$4j$4k$2
-\\ $2ㅁ$4d$4
+\\원$4투$4Q$2W$2E$2R$4
+\\어$2이$2!$0어$2이$2!$0어$2이$2!$0어$2이$2!$0
+\\어$2이$2!$0어$2이$2!$0어$2이$2!$0어$2이$2!$0
+\\어$2이$2!$0어$2이$2!$0
 \\ $23
 \\어$1떤$1 $0인$2사$2가$2 $0괜$1찮$1을$2까$5 $0천$1 $0번$2쯤$2 $0상$2상$1해$1 $0봤$1어$5
 \\근$1데$1 $0오$2늘$2도$2 $0천$1 $0번$1 $0하$2고$2 $0한$1 $0번$2 $0더$1 $0고$2민$1 $0중$10
@@ -111,8 +111,8 @@ const getData = () => {
   });
 };
 
-const DEBUG = true;
-const data = DEBUG ? getData() : TBH.data;
+const DEBUG = false;
+const data = DEBUG ? getData() : TBH;
 console.log(data);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const 악보데이터: any[] = [];
