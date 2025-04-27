@@ -31,7 +31,7 @@ export default function RootLayout({
         {/* <div className="bg-[url(/MANITO.webp)] bg-no-repeat w-dvw h-dvh bg-cover"> */}
         <div className="bg-sky-100 w-dvw h-dvh flex flex-col m-auto text-center items-center">
           <div className="font-bold text-3xl mt-12">
-            🤍 🩷 QWER 응원법 가이드사이트 💙 💚
+            🤍 🩷 QWER 응원법 가이드 사이트 💙 💚
           </div>
           <div className=" text-red-400 font-bold text-xl">
             !! 비공식 사이트입니다 !!
