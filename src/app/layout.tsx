@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +29,26 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* <div className="bg-[url(/MANITO.webp)] bg-no-repeat w-dvw h-dvh bg-cover"> */}
-        <div className="bg-sky-100 w-dvw h-dvh flex justify-center">
+        <div className="bg-sky-100 w-dvw h-dvh flex flex-col m-auto text-center items-center">
+          <div className="font-bold text-3xl mt-12">
+            🤍 🩷 QWER 응원법 가이드사이트 💙 💚
+          </div>
+          <div className=" text-red-400 font-bold text-xl">
+            !! 비공식 사이트입니다 !!
+          </div>
+          <div>
+            공식 응원법 안내는{" "}
+            <Link
+              href={"https://cafe.naver.com/eggkim/268484"}
+              className="text-blue-500"
+              target="_blank"
+            >
+              카페 게시물
+            </Link>
+            을 참고해주세요!
+          </div>
           {children}
         </div>
-        {/* </div> */}
       </body>
     </html>
   );

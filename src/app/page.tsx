@@ -57,16 +57,18 @@ const Page = () => {
           <></>
         )}
       </div>
-      <div className="flex p-20">
+      <div className="flex p-20 pt-12">
         <div>
-          🤍 🩷 💙 💚
-          <button
-            onClick={toggleOpen}
-            className="
-        cursor-pointer w-32 h-8 min-w-32 flex border-2 border-blue-500 rounded-2xl items-center justify-center hover:bg-sky-500 self-start justify-self-end"
-          >
-            <div>가사 전체 보기</div>
-          </button>
+          <div className="flex justify-between">
+            <div className="font-bold text-2xl">고민중독</div>
+            <button
+              onClick={toggleOpen}
+              className="
+        cursor-pointer w-32 h-8 min-w-32 flex border-2 border-blue-500 rounded-2xl items-center justify-center hover:bg-sky-500"
+            >
+              <div>가사 전체 보기</div>
+            </button>
+          </div>
           <p className="h-2"></p>
           <Player data={data} />
         </div>
