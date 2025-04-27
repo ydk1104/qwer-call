@@ -5,7 +5,7 @@ import { Player } from "./Player";
 import data from "./admin/TBH.json";
 import { useState } from "react";
 
-export const Page = () => {
+const Page = () => {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen((prev) => !prev);
   return (
