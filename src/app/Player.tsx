@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { RefObject, useMemo, useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import YouTube from "react-youtube";
-import Image from "next/image";
 
 export const useTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -21,7 +20,7 @@ export const useTimer = () => {
         return {
           start: prev.start,
           time: Date.now() - prev.start,
-        }
+        };
       });
     }, 10);
   };
@@ -59,9 +58,13 @@ export const useTimer = () => {
   };
 };
 
-const A = (v: { 가사: string; 응원: string; 박자: number }, emoji: boolean) => {
+const A = (
+  v: { 가사: string; 응원: string; 박자: number },
+  emoji: boolean,
+  key: string
+) => {
   return (
-    <div className="flex-col w-4 text-lg">
+    <div className="flex-col w-4 text-lg" key={key}>
       <div>{v.가사}</div>
       <div>{v.응원}</div>
       {emoji ? <div>냥</div> : <></>}
@@ -95,21 +98,13 @@ export const Player = ({
   data?: 데이터[];
   videoId?: string;
 }) => {
-  const {
-    TimerComponent: Timer,
-    handleStart,
-    handlePause,
-    handleReset,
-    time,
-  } = useTimer();
+  const { handleStart, handlePause, handleReset, time } = useTimer();
   const current소절 = (data || []).reduce((prev, curr) => {
     return time <= curr.시작시간 ? prev : curr;
   });
-  // console.log(current소절);
   let i = 0;
   while (time >= current소절.소절[i]?.시간) i++;
   i--;
-  // console.log(current소절);
   return (
     <>
       <YouTube
@@ -125,7 +120,7 @@ export const Player = ({
           <div className="bg-green-400 rounded-sm px-2">바위게</div>
         </div>
         <div className="h-16 border-[1px] mx-2"></div>
-        {current소절.소절.map((v, j) => A(v, i == j))}
+        {current소절.소절.map((v, j) => A(v, i == j, `${v.가사}${j}`))}
       </div>
     </>
   );
