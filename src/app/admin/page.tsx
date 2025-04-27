@@ -1,6 +1,7 @@
 "use client";
 
 import { Player, useTimer } from "../Player";
+import { Editor } from "./Editor";
 import TBH from "./TBH.json";
 
 const 가사 = `  
@@ -180,7 +181,7 @@ export default function main() {
   return (
     <div className="p-12">
       <Header />
-      <Player data={data} />
+      <Editor data={data} />
       <Footer />
     </div>
   );
