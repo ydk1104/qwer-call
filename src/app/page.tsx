@@ -59,6 +59,7 @@ const Page = () => {
       </div>
       <div className="flex p-20">
         <div>
+          🤍 🩷 💙 💚
           <button
             onClick={toggleOpen}
             className="
