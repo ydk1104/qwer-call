@@ -118,7 +118,7 @@ export const Player = ({
         onPause={handlePause}
         onEnd={handleReset}
       ></YouTube>
-      <Timer />
+      <p className="h-2"></p>
       <div className="flex text-lg">
         <div className="flex-col text-lg">
           <div className="bg-pink-300 rounded-sm px-2">QWER</div>

@@ -1,18 +1,50 @@
 "use client";
 
-import Image from "next/image";
-import { 가사 } from "./TBH";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import { Player } from "./Player";
 import data from "./admin/TBH.json";
+import { useState } from "react";
 
 export default function Home() {
-  const 소절 = 가사.split("\n");
-  const [isplay, setIsplay] = useState(false);
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => setOpen((prev) => !prev);
+  const 소절 = data.map((v) => v.소절.map((w) => w.응원).join(""));
   return (
     <>
-      <div className="flex">
+      <div className="w-2 h-4 flex items-start justify-end absolute right-0">
+        <button onClick={toggleOpen} className="cursor-pointer bg-sky-50 mt-[40dvh] w-16 mw-16 p-8 py-4 rounded-bl-lg">
+          {open ? ">" : "<"}
+        </button>
+        {open ?
+          <div className="w-[25dvw] min-w-[25dvw] h-dvh bg-sky-50 p-4">
+
+            {data.map((v, i) => {
+              return <div key={i}>{v.소절.map((w, j) =>
+                <motion.span className="font-bold text-gray-400 bg-sky-50" variants={{
+                  first: { color: "gray" },
+                  animateEnd: {
+                    color: "#3030cc",
+                    background: (w.응원 !== ' ') || (w.응원 === ' ' && j && v.소절[j - 1].응원 !== ' ') ? "var(--color-green-400)" : "var(--color-pink-300)",
+                  }
+                }}
+                  initial="first"
+                  animate="animateEnd"
+                  transition={{
+                    delay: w.시간 - 20,
+                    duration: 0,
+                    // duration: w.박자 / 10,
+                    ease: "easeInOut"
+                  }}
+                  key={`${i}.${j}`}
+                >
+                  {w.응원 === ' ' ? w.가사 : w.응원}
+                </motion.span>
+
+              )}</div>
+
+            })}
+          </div> : <></>}      </div>
+      <div className="flex p-20">
         {/* <Image
           src="/TBH.jpg"
           alt="고민중독"
@@ -20,72 +52,13 @@ export default function Home() {
           height={991}
           className="rounded-3xl"
         /> */}
-
         <div>
-          <div className="m-30" />
-          <Player data={data} />
-
-          <button
-            className="border rounded-3xl w-8 h-8 bg-gray-100 border-gray-300"
-            onClick={() => {
-              setIsplay(!isplay);
-            }}
-          >
-            {isplay ? "■" : "▶"}
+          <button onClick={toggleOpen} className="
+        cursor-pointer w-32 h-8 min-w-32 flex border-2 border-blue-500 rounded-2xl items-center justify-center hover:bg-sky-500 self-start justify-self-end">
+            <div>가사 전체 보기</div>
           </button>
-          {소절.map((v, i) => {
-            let flag = false;
-            return (
-              <div key={i}>
-                {v.split("").map((w, j) => {
-                  if (w === "\\") {
-                    flag = !flag;
-                    return <></>;
-                  }
-                  return (
-                    <motion.span
-                      className="font-bold text-gray-400"
-                      variants={{
-                        first: { color: "gray" },
-                        animateEnd: {
-                          color: "#0000cc",
-                          background: flag ? "#7777cc" : "white",
-                        },
-                      }}
-                      initial="first"
-                      animate="animateEnd"
-                      transition={{
-                        delay: i + j / v.length,
-                      }}
-                      key={`${i}.${j}`}
-                    >
-                      {w}
-                    </motion.span>
-                  );
-                })}
-              </div>
-            );
-            return (
-              <motion.div
-                className="font-bold text-gray-400"
-                key={`${v}${i}`}
-                variants={{
-                  first: { color: "gray" },
-                  animateEnd: { color: "blue" },
-                }}
-                initial="first"
-                animate="animateEnd"
-                transition={{
-                  ease: "linear",
-                  duration: 1, // 애니메이션이 총 걸리는 시간
-                  delay: i, // 처음 애니메이션 delay
-                }}
-              >
-                &nbsp;
-                {v}
-              </motion.div>
-            );
-          })}
+          <p className="h-2"></p>
+          <Player data={data} />
         </div>
       </div>
     </>
