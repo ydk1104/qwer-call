@@ -24,7 +24,16 @@ const Page = () => {
                 <div key={i}>
                   {v.소절.map((w, j) => (
                     <motion.span
-                      className="font-bold text-gray-400 bg-sky-50"
+                      className="font-bold text-gray-400 bg-sky-50 py-[1px]"
+                      style={
+                        j == 0
+                          ? j == v.소절.length - 1
+                            ? {}
+                            : { paddingLeft: "3px" }
+                          : j == v.소절.length - 1
+                          ? { paddingRight: "3px" }
+                          : {}
+                      }
                       variants={{
                         first: { color: "gray" },
                         animateEnd: {
@@ -34,6 +43,12 @@ const Page = () => {
                             (w.응원 === " " && j && v.소절[j - 1].응원 !== " ")
                               ? "var(--color-green-400)"
                               : "var(--color-pink-300)",
+                          borderTopLeftRadius: j == 0 ? "4px" : "0px",
+                          borderTopRightRadius:
+                            j == v.소절.length - 1 ? "4px" : "0px",
+                          borderBottomLeftRadius: j == 0 ? "4px" : "0px",
+                          borderBottomRightRadius:
+                            j == v.소절.length - 1 ? "4px" : "0px",
                         },
                       }}
                       initial="first"
