@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { Player } from "./Player";
 import data from "./admin/TBH.json";
 import { useState } from "react";
+import { useTimer } from "@/context/Timer";
 
 const Page = () => {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen((prev) => !prev);
+  const timer = useTimer();
   return (
     <>
       <div className="w-2 h-4 flex items-start justify-end absolute right-0">
@@ -54,7 +56,7 @@ const Page = () => {
                       initial="first"
                       animate="animateEnd"
                       transition={{
-                        delay: w.시간 - 20,
+                        delay: w.시간 - timer.time,
                         duration: 0,
                         // duration: w.박자 / 10,
                         ease: "easeInOut",
@@ -85,7 +87,7 @@ const Page = () => {
             </button>
           </div>
           <p className="h-2"></p>
-          <Player data={data} />
+          <Player data={data} timer={timer} />
         </div>
       </div>
     </>
