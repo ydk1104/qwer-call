@@ -31,7 +31,7 @@ const Navibar = () => {
       </div>
       <div className=" text-xl text-center">
         <Link
-          href="https://docs.google.com/spreadsheets/d/1-naVlQeTSNeiGkgt7Ty-tqdqiM28na4PptIpbDv1gdk/edit?gid=256193314#gid=256193314"
+          href="https://docs.google.com/spreadsheets/d/1aHJ5ITDPQ-5Py9gyYRyIcp6iTSvhfa7xiOh28DmXlhk/edit?gid=419099905#gid=419099905"
           target="_blank"
         >
           응원법 제안 / 건의사항
