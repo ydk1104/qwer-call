@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Usable, useState } from "react";
+import React, { useState } from "react";
 
 const data = {
   discord: {
@@ -67,7 +67,7 @@ const links: { [key: string]: string } = {
 const Page = ({
   params,
 }: {
-  params: Usable<{ title: "discord" | "manito" | "mynameishina" | "r" }>;
+  params: Promise<{ title: "discord" | "manito" | "mynameishina" | "r" }>;
 }) => {
   const param = React.use(params);
   const [selected, setSelected] = useState("");
