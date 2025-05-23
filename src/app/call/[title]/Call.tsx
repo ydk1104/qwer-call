@@ -35,7 +35,14 @@ const data = {
     color: "white",
   },
   r: {
-    track: ["준비중!!"],
+    track: [
+      "눈물참기",
+      "행복해져라",
+      "검색어는 QWER",
+      "OVERDRIVE",
+      "D-DAY",
+      "Yours sincerely",
+    ],
     bgColor: "#E9A4C7",
     color: "white",
   },
@@ -62,6 +69,12 @@ const links: { [key: string]: string } = {
   "안녕, 나의 슬픔": "후레쉬를 흔들어주세요!",
   달리기: "홍지혜 이아희 외쳐주세요",
   메아리: "누가 아이디어좀",
+  눈물참기: "준비중..",
+  행복해져라: "준비중..",
+  "검색어는 QWER": "준비중..",
+  OVERDRIVE: "준비중..",
+  "D-DAY": "준비중..",
+  "Yours sincerely": "준비중..",
 };
 
 // Return a list of `params` to populate the [slug] dynamic segment
