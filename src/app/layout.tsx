@@ -56,7 +56,7 @@ export default function RootLayout({
       >
         <Navibar></Navibar>
         {/* <div className="bg-[url(/MANITO.webp)] bg-no-repeat w-dvw h-dvh bg-cover"> */}
-        <div className="bg-sky-100 w-dvw h-dvh flex flex-col m-auto text-center items-center">
+        <div className="bg-sky-100 w-full h-dvh flex flex-col m-auto text-center items-center">
           <div className="font-bold text-3xl mt-4">
             🤍 🩷 QWER 응원법 가이드 사이트 💙 💚
           </div>

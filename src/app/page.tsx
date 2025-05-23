@@ -46,6 +46,16 @@ const Card4 = () => {
   );
 };
 
+const Card5 = () => {
+  return (
+    <Link href="/call/etc">
+      <div className="w-32 h-20 rounded-2xl bg-[#8258FA] text-[#c3d773] text-center flex items-center">
+        기타 노래
+      </div>
+    </Link>
+  );
+};
+
 const Page = () => {
   return (
     <div>
@@ -57,6 +67,7 @@ const Page = () => {
         <Card3 />
         <Card4 />
       </div>
+      <Card5 />
     </div>
   );
 };
